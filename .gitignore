@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+
+# Ignore everything
+*
+
+# Do not ignore *.* files
+!*.*
+
+# Do not ignore folders
+!*/
+
+
