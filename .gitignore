@@ -7,6 +7,9 @@ __pycache__/
 # Do not ignore *.* files
 !*.*
 
+# Do not ignore Makefiles
+!Makefile
+
 # Do not ignore folders
 !*/
 
