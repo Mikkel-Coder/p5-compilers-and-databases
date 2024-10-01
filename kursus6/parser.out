@@ -1,0 +1,186 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement SEMICOLON program
+Rule 2     program -> empty
+Rule 3     statement -> normal_assignment
+Rule 4     statement -> register_assignment
+Rule 5     normal_assignment -> VARNAME EQUAL NUMBER
+Rule 6     register_assignment -> OCTOTHORPE REGISTER VARNAME EQUAL VARNAME PLUS VARNAME
+Rule 7     empty -> <empty>
+
+Terminals, with rules where they appear
+
+EQUAL                : 5 6
+NUMBER               : 5
+OCTOTHORPE           : 6
+PLUS                 : 6
+REGISTER             : 6
+SEMICOLON            : 1
+VARNAME              : 5 6 6 6
+error                : 
+
+Nonterminals, with rules where they appear
+
+empty                : 2
+normal_assignment    : 3
+program              : 1 0
+register_assignment  : 4
+statement            : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement SEMICOLON program
+    (2) program -> . empty
+    (3) statement -> . normal_assignment
+    (4) statement -> . register_assignment
+    (7) empty -> .
+    (5) normal_assignment -> . VARNAME EQUAL NUMBER
+    (6) register_assignment -> . OCTOTHORPE REGISTER VARNAME EQUAL VARNAME PLUS VARNAME
+
+    $end            reduce using rule 7 (empty -> .)
+    VARNAME         shift and go to state 6
+    OCTOTHORPE      shift and go to state 7
+
+    program                        shift and go to state 1
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    normal_assignment              shift and go to state 4
+    register_assignment            shift and go to state 5
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement . SEMICOLON program
+
+    SEMICOLON       shift and go to state 8
+
+
+state 3
+
+    (2) program -> empty .
+
+    $end            reduce using rule 2 (program -> empty .)
+
+
+state 4
+
+    (3) statement -> normal_assignment .
+
+    SEMICOLON       reduce using rule 3 (statement -> normal_assignment .)
+
+
+state 5
+
+    (4) statement -> register_assignment .
+
+    SEMICOLON       reduce using rule 4 (statement -> register_assignment .)
+
+
+state 6
+
+    (5) normal_assignment -> VARNAME . EQUAL NUMBER
+
+    EQUAL           shift and go to state 9
+
+
+state 7
+
+    (6) register_assignment -> OCTOTHORPE . REGISTER VARNAME EQUAL VARNAME PLUS VARNAME
+
+    REGISTER        shift and go to state 10
+
+
+state 8
+
+    (1) program -> statement SEMICOLON . program
+    (1) program -> . statement SEMICOLON program
+    (2) program -> . empty
+    (3) statement -> . normal_assignment
+    (4) statement -> . register_assignment
+    (7) empty -> .
+    (5) normal_assignment -> . VARNAME EQUAL NUMBER
+    (6) register_assignment -> . OCTOTHORPE REGISTER VARNAME EQUAL VARNAME PLUS VARNAME
+
+    $end            reduce using rule 7 (empty -> .)
+    VARNAME         shift and go to state 6
+    OCTOTHORPE      shift and go to state 7
+
+    statement                      shift and go to state 2
+    program                        shift and go to state 11
+    empty                          shift and go to state 3
+    normal_assignment              shift and go to state 4
+    register_assignment            shift and go to state 5
+
+state 9
+
+    (5) normal_assignment -> VARNAME EQUAL . NUMBER
+
+    NUMBER          shift and go to state 12
+
+
+state 10
+
+    (6) register_assignment -> OCTOTHORPE REGISTER . VARNAME EQUAL VARNAME PLUS VARNAME
+
+    VARNAME         shift and go to state 13
+
+
+state 11
+
+    (1) program -> statement SEMICOLON program .
+
+    $end            reduce using rule 1 (program -> statement SEMICOLON program .)
+
+
+state 12
+
+    (5) normal_assignment -> VARNAME EQUAL NUMBER .
+
+    SEMICOLON       reduce using rule 5 (normal_assignment -> VARNAME EQUAL NUMBER .)
+
+
+state 13
+
+    (6) register_assignment -> OCTOTHORPE REGISTER VARNAME . EQUAL VARNAME PLUS VARNAME
+
+    EQUAL           shift and go to state 14
+
+
+state 14
+
+    (6) register_assignment -> OCTOTHORPE REGISTER VARNAME EQUAL . VARNAME PLUS VARNAME
+
+    VARNAME         shift and go to state 15
+
+
+state 15
+
+    (6) register_assignment -> OCTOTHORPE REGISTER VARNAME EQUAL VARNAME . PLUS VARNAME
+
+    PLUS            shift and go to state 16
+
+
+state 16
+
+    (6) register_assignment -> OCTOTHORPE REGISTER VARNAME EQUAL VARNAME PLUS . VARNAME
+
+    VARNAME         shift and go to state 17
+
+
+state 17
+
+    (6) register_assignment -> OCTOTHORPE REGISTER VARNAME EQUAL VARNAME PLUS VARNAME .
+
+    SEMICOLON       reduce using rule 6 (register_assignment -> OCTOTHORPE REGISTER VARNAME EQUAL VARNAME PLUS VARNAME .)
+
