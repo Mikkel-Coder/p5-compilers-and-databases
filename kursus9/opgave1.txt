@@ -1,0 +1,76 @@
+{
+    "_id": "6707cd8b6b91435d8977a52b",
+    "event": {
+        "gold_per_floor": [
+            99,
+            99
+        ],
+        "floor_reached": 0,
+        "playtime": 5,
+        "items_purged": [],
+        "score": 0,
+        "play_id": "2eebda8a-6486-4fed-b32e-306c66ce5b52",
+        "local_time": "20181024222406",
+        "is_ascension_mode": true,
+        "campfire_choices": [],
+        "neow_cost": "",
+        "seed_source_timestamp": 715104038123476,
+        "circlet_count": 0,
+        "master_deck": [
+            "Strike_R",
+            "Strike_R",
+            "Strike_R",
+            "Strike_R",
+            "Strike_R",
+            "Defend_R",
+            "Defend_R",
+            "Defend_R",
+            "Defend_R",
+            "Bash",
+            "AscendersBane"
+        ],
+        "relics": [
+            "Burning Blood"
+        ],
+        "potions_floor_usage": [],
+        "damage_taken": [],
+        "seed_played": "-4518276804806975519",
+        "potions_obtained": [],
+        "is_trial": false,
+        "path_per_floor": [],
+        "character_chosen": "IRONCLAD",
+        "items_purchased": [],
+        "campfire_rested": 0,
+        "item_purchase_floors": [],
+        "current_hp_per_floor": [
+            68,
+            68
+        ],
+        "gold": 99,
+        "neow_bonus": "",
+        "is_prod": false,
+        "is_daily": false,
+        "chose_seed": false,
+        "campfire_upgraded": 0,
+        "win_rate": 0,
+        "timestamp": 1540434246,
+        "path_taken": [],
+        "build_version": "2018-10-23",
+        "purchased_purges": 0,
+        "victory": false,
+        "max_hp_per_floor": [
+            75,
+            75
+        ],
+        "card_choices": [],
+        "player_experience": 1360121,
+        "relics_obtained": [],
+        "event_choices": [],
+        "is_beta": true,
+        "boss_relics": [],
+        "items_purged_floors": [],
+        "is_endless": false,
+        "potions_floor_spawned": [],
+        "ascension_level": 20
+    }
+}
