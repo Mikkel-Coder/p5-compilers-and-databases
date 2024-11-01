@@ -1,3 +1,6 @@
+## REMEMBER TO INCLUDE THE DATABASE!!
+See the code for which one.
+
 ## 3. Setup virtual Python env to install dependencies
 1. Setup a virtual environment called `.venv`
     ```
