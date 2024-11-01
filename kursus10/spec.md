@@ -2,7 +2,8 @@ Get (receive) info:
 ```json
 {
     "method": "get",
-    "attribute": "",
+    "attribute": ""
+    "scope": <SCOPE>
 }
 ```
 
@@ -10,8 +11,8 @@ Post (add) info:
 ```json
 {
     "method": "post",
-    "attribute": "",
-    "value": "",
+    "value": ""
+    "scope": <SCOPE>
 }
 
 ```
@@ -19,8 +20,11 @@ Post (add) info:
 Delete info:
 ```json
 {
-    "method": "delete",
-    "attribute": "",
+    "method": "delete"
+    "scope": <SCOPE>
 }
+```
 
+```
+SCOPE = "<host|network>"
 ```
