@@ -1,7 +1,7 @@
 from queue import Queue
-from typing import Any
 import sqlite3
-from treelib import ( # DOCS: https://treelib.readthedocs.io/en/stable/pyapi.html
+# DOCS: https://treelib.readthedocs.io/en/stable/pyapi.html
+from treelib import (
     Tree,
     Node,
 )
@@ -28,13 +28,13 @@ def main() -> None:
     topology_id: int = 1124
     res: sqlite3.Cursor = db_cursor.execute(
         f"""
-        SELECT 
-            TOPOLOGYELEMENTID, 
+        SELECT
+            TOPOLOGYELEMENTID,
             CONNECTIONID
         FROM
             topology
         WHERE
-            TOPOLOGYID = {topology_id} 
+            TOPOLOGYID = {topology_id}
             AND ID < 10000
         """
     )
@@ -71,7 +71,7 @@ def main() -> None:
         for node_id in path:
 
             # If the current node_id has been remove from the path
-            if node_id == None:
+            if node_id is None:
                 # Then skip it
                 continue
 
@@ -87,8 +87,7 @@ def main() -> None:
             if len(children) == 1:
                 # Then replace the current node with the child,
                 # and remove the current node
-                child_node: Node = tree.get_node(children[0])
-                tree.link_past_node(current_node.identifier)  # This also removes
+                tree.link_past_node(current_node.identifier)
 
     # 5. REVERSE WALK THE TREE FROM EACH LEAF TO THE ROOT, NOTING EACH BRANCH
     # Walk bottom up fixing off by 1 error and assembling nodes to work on after we have data
@@ -128,14 +127,14 @@ def main() -> None:
     topologyelementid_sql: str = ", ".join(map(str, known_leaves))
     res: sqlite3.Cursor = db_cursor.execute(
         f"""
-        SELECT 
+        SELECT
             TOPOLOGYELEMENTID,
             C_L1,
             C_L2,
             C_L3
         FROM
             measurements
-        WHERE 
+        WHERE
             TOPOLOGYID = {topology_id}
             AND TOPOLOGYELEMENTID IN ({topologyelementid_sql})
             AND ID < 10000
