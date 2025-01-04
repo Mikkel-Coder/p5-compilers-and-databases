@@ -1,12 +1,21 @@
-%{
-#include <stdio.h>
-#include <string.h>
+/*
+ * Udvid lex-programmet med en tabel som indeholder alle de fundne leksikalske
+ * enheder, således at hver stavemåde kun er repræsenteret en gang i tabellen.
+ *
+ */
 
+%{
+#include <stdio.h> // For strlen
+#include <string.h> // For printf
+
+// We use a static table (array) for simplicity
 #define MAX_STRING_SIZE 1024
 #define MAX_TABLE_SIZE 1024
 
+// Init the table as all empty chars
 char table[MAX_TABLE_SIZE][MAX_STRING_SIZE] = {0};
 
+// Our function to add the discoverd tokens too
 void addstring(char* s) {
     for (int i = 0; i < MAX_TABLE_SIZE; i++) {
         // Skip if the string is already in the table
