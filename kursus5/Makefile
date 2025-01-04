@@ -1,7 +1,7 @@
 CC = gcc # C Compiler
 YACC = bison # Yet Another Compiler Compiler
 LEX = flex # Fast LEX
-EXECUTABLE = opgave4
+EXECUTABLE = opgave3
 YACC_FILE = $(EXECUTABLE).y
 LEX_FILE = $(EXECUTABLE).l
 YACC_HEADER = $(EXECUTABLE).tab.h

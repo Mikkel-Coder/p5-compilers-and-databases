@@ -1,15 +1,15 @@
 %{
 #include <stdlib.h> // exit codes
 #include <string.h> // strdup
-#include "opgave4.tab.h" // Token types form YACC
+#include "opgave3.tab.h" // Token types form YACC
 
 /* 
  * Helper function that allocates enough heap memory,
- * so that YACC is able to process ASM code without skiping
+ * so that YACC is able to process ASM code without skipping
  * the selected text/token.
  * 
  * If this is not done, then LEX continues to the next input 
- * token, resuling in YACC printing the wrong token. 
+ * token, resulting in YACC printing the wrong token. 
  */ 
 char *parse_string(const char *text) {
     char *s = strdup(text);
@@ -53,5 +53,5 @@ register    [A-D]
      */
     return *yytext;
 }
-.   /* Ingore unkown text */
+.   /* Ignore unknown text */
 %%

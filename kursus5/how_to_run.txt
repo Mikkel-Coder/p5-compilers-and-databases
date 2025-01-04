@@ -1,2 +1,0 @@
-make 
-./opgave4 < schweigi_source_code.txt 
