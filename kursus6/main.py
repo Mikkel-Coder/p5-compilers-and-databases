@@ -29,7 +29,6 @@ def t_VARNAME(token):
     r'[e-h]'
     return token
 
-
 # Rule for numbers
 def t_NUMBER(token):
     r'[0-9]'
@@ -87,7 +86,7 @@ def p_error(p):
     print(f"Error: {p}")
 
 # Build the parser
-parser = yacc.yacc()
+parser = yacc.yacc(debug=True) # Debug enabled to get parser.out
 
 if __name__ == "__main__":
     # Takes a file as input and use it for lex
