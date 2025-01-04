@@ -18,7 +18,7 @@
  * T = {“if”, “(“, “)”, “{“, “}”, ”;”, ”\n”, ε}
  * P = 	PROG → ST_LIST 
  * 	ST_LIST →  ST \n ST_LIST | ε
- * 	ST → if() { \n ST_LIST \n};
+ * 	ST → if() { \n ST_LIST \n };
  * S = {PROG}
  * 
  * “ “ (the space character) is not include in the alphabet/terminals
