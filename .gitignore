@@ -13,4 +13,5 @@ __pycache__/
 # Do not ignore folders
 !*/
 
-
+# Ignore .yy.c files
+*.yy.c
