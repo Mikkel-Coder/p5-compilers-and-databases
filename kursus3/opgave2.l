@@ -16,7 +16,7 @@
 char table[MAX_TABLE_SIZE][MAX_STRING_SIZE] = {0};
 
 // Our function to add the discoverd tokens too
-void addstring(char* s) {
+void addstring(const char* s) {
     for (int i = 0; i < MAX_TABLE_SIZE; i++) {
         // Skip if the string is already in the table
         if (strcmp(s, table[i]) == 0) {
