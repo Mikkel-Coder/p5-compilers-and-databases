@@ -1,11 +1,30 @@
-import sqlite3
-from treelib import Tree
+"""
+Opgave 3.2
+
+For each cable element, there is a connected element (connectionID) pin 
+pointing the connection (zero is root node)
+• Each cable segment (identified with a topologyID) has a resistance 
+  that can be summed to find the total resistance. what is the total
+  resistance for the longest path?
+
+"""
+
+import sqlite3 # The "driver" to talk to the db via
+from treelib import Tree # For making the tree so we can find the longest resistance
+from pathlib import Path # Not important for the assignment 
+
+# For sanity, check if the DB exists
+database_file = Path("measurementdata.db")
+if not database_file.exists():
+    print("I cannot find the \"measurementdata.db\" database. Please move the file to here")
+    exit(1)
 
 # Connect to our SQLite databse
 connection = sqlite3.connect("measurementdata.db")
 db_cursor = connection.cursor()
 
 # Format the SQL query
+# Not that safe to do (SQL injection)
 start_topologyID = 1060
 res = db_cursor.execute(
     f"SELECT TOPOLOGYELEMENTID, CONNECTIONID, RESISTIVITY FROM topology WHERE TOPOLOGYID = {start_topologyID}"
@@ -13,8 +32,14 @@ res = db_cursor.execute(
 
 # Run the SQL query
 data = res.fetchall()
+print(data)
+# The first number in the tuple is the topologyelementID used to uniquely identify each "transformer station"
+# The seconde number is what the topologyelement is connected to
+# The 3rd is the resistance for the first topologyelementID 
+# [(0, 1, 5.116312933119511), (1, 2, 6.318213372549275), (1, 87, 6.318213372549275), ...]
 
 # We create our tree and its root
+# You could see the root as the power plant
 tree = Tree()
 tree.create_node("root", 0)
 
