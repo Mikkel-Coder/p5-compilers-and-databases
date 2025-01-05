@@ -1,3 +1,13 @@
+"""
+Opgave B
+
+Find ud af hvem der med rimelig sandsynlighed snyder i spillet. Er der flere end en enkelt?
+
+A player is a cheater when they have more than 20K gold
+and has played less than 1000
+
+"""
+
 from os import listdir, path    # Used to get all the json databases from the os
 from pprint import pprint       # Used to print document so they look good
 import json                     # Used to read in the json database files

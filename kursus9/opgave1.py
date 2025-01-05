@@ -1,3 +1,9 @@
+"""
+Opgave A
+
+Find ud af hvilke tre spillere af spillet har spillet i længst tid?
+"""
+
 from os import listdir, path    # Used to get all the json databases from the os
 from pprint import pprint       # Used to print document so they look good
 import json                     # Used to read in the json database files
